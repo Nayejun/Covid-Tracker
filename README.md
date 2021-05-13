@@ -1,5 +1,5 @@
-# vue-covid-tracker <br>
-## 2021.5.13 ~ ing
+## vue-covid-tracker
+### 2021.5.13 ~ ing
 
 ## Project setup
 ```
