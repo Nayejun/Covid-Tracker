@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Hello world
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
+  components: {},
+  data() {
+
+  },
+  methods: {
+    // 비동기 처리
+    async fetchCovidData() {
+      const res = await fetch('https://api.covid19api.com/summary')
+      const data = await res.json()
+      return data;
+    }
+  },
+  async created() {
+    const data = this.fetchCovidData()
+    console.log(data)
+  },
 }
 </script>

@@ -1,30 +1,21 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+<Header />
+<div class="container">
+  <router-view />
+</div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+//다른 페이지나 뷰를 보고 모든 페이지에 가져와야 하는 새로운 경로를 추가.
+//그래서 그것을 메인으로 추가 -> 스크립트 태그
 
-#nav {
-  padding: 30px;
-}
+<script>
+import Header from '@/components/Header'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+//기본 개체, 구성요소
+export default {
+  components: {
+    //여기에 Header를 정의
+    Header
+  }
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
