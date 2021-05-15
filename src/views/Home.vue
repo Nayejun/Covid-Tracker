@@ -1,7 +1,8 @@
 <template>
 <!-- 조건부 렌더링 -->
   <main v-if = "!loding">
-    <DataTitle :text="title" :dataDate="dataDate" />
+    <DataTitle :dataDate="dataDate" :text="title" />
+
   </main>
 
   <main class="flex flex-col align-center justify-center text-center" v-else>
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import DataTitle from '@/components/DataTitle'
+import DataTitle from '@/components/DataTitle';
 
 export default {
   name: 'Home',
