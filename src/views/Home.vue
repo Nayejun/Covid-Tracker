@@ -2,6 +2,7 @@
 <!-- 조건부 렌더링 -->
   <main v-if = "!loding">
     <DataTitle :dataDate="dataDate" :text="title" />
+    <DataBoxes :stats="stats" />
 
   </main>
 
@@ -15,11 +16,13 @@
 
 <script>
 import DataTitle from '@/components/DataTitle';
+import DataBoxes from '@/components/DataBoxes';
 
 export default {
   name: 'Home',
   components: {
-    DataTitle
+    DataTitle,
+    DataBoxes
   },
   data() {
     return {
