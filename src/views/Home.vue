@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      data: undefined,
       loding: true,
       title: 'Global',
       dataDate: '',
@@ -43,16 +44,19 @@ export default {
     }
   },
   async created() {
-    const data = this.fetchCovidData()
+    this.fetchCovidData().then(res => {
+      this.data = res
+      this.dataDate = this.data.Date
+      //글로벌 데이터를 통계에 할당
+      this.stats = this.data.Global
+      //국가별 데이터
+      this.countries = this.data.Countries
+      // 데이터 가져올 때 로딩 이미지 표시
+      this.loding = false
+      console.log(this.stats)
+    }).catch(e => (console.log(e)))
 
     // API에서 들어오는 Date data를 할당
-    this.dataDate = data.Date
-    //글로벌 데이터를 통계에 할당
-    this.stats = data.Global
-    //국가별 데이터
-    this.countries = data.Countries
-    // 데이터 가져올 때 로딩 이미지 표시
-    this.loding = false
   },
 }
 </script>
